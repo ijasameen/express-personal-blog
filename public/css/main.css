@@ -1,0 +1,66 @@
+:root {
+  --cl-primary-dark-100: hsl(0, 0%, 7%);
+  --cl-primary-dark-200: hsl(0, 0%, 9%);
+  --cl-primary-dark-300: hsl(0, 0%, 14%);
+  --cl-primary-dark-400: hsl(0, 0%, 18%);
+  --cl-primary-dark-500: hsl(0, 0%, 24%);
+  --cl-primary-dark-600: hsl(0, 0%, 28%);
+  --cl-primary-dark-700: hsl(0, 0%, 32%);
+
+  --cl-primary-light-100: hsl(0, 0%, 87%);
+  --cl-primary-light-200: hsl(0, 0%, 82%);
+  --cl-primary-light-300: hsl(0, 0%, 76%);
+  --cl-primary-light-400: hsl(0, 0%, 68);
+}
+
+*,
+::before,
+::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  color: var(--cl-primary-light-100);
+  background-color: var(--cl-primary-dark-100);
+}
+
+main {
+  padding: 2.25rem 1rem 0;
+}
+
+.main-nav {
+  padding: 1rem 2rem;
+  display: flex;
+  justify-content: center;
+  gap: 1.5rem;
+  background-color: var(--cl-primary-dark-200);
+  border: 1px solid var(--cl-primary-dark-500);
+  border-top: none;
+  border-radius: 0 0 1rem 1rem;
+}
+
+.main-nav-link {
+  padding: 0.5em 1.5em;
+  color: inherit;
+  border: 1px solid var(--cl-primary-dark-500);
+  border-radius: 0.5em;
+  background-color: var(--cl-primary-dark-300);
+  text-decoration: none;
+}
+
+.main-nav-link:hover {
+  background-color: var(--cl-primary-dark-500);
+  border-color: var(--cl-primary-dark-700);
+}
+
+.main-nav-link:active {
+  background-color: var(--cl-primary-dark-400);
+  border-color: var(--cl-primary-dark-500);
+}
+
+.container {
+  width: min(50rem, calc(100% - 4rem));
+  margin-inline: auto;
+}
