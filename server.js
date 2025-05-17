@@ -1,10 +1,11 @@
+import config from "dotenv/config";
 import express from "express";
 import expressEjsLayouts from "express-ejs-layouts";
 import indexRouter from "./routes/root.js";
 
 const __dirname = import.meta.dirname;
 
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT || 9000;
 
 const app = express();
 
