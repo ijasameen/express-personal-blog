@@ -11,8 +11,10 @@ router.use((req, res, next) => {
 router.get("/create{.html}", (req, res) => {
   res.status(200);
   res.render("admin/create", {
-    title: "Blog Website Admin - Create Post",
     layout: req.ejsLayout,
+    title: "Blog Website Admin - Create Post",
+    message: null,
+    formData: {},
   });
 });
 

@@ -139,7 +139,7 @@ textarea:focus {
   border-color: var(--cl-primary-light-600);
 }
 
-/* UTILITY CLASSES */
+/* COMPONENTS CLASSES */
 /* ------------------------- */
 
 .input-form {
@@ -156,6 +156,42 @@ textarea:focus {
 
 .input-field:not(:last-child) {
   margin-bottom: 0.9em;
+}
+
+.model {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  right: 0;
+  z-index: 100;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: hsla(0, 0%, 7%, 0.88);
+}
+
+.model__content {
+  position: relative;
+  width: 80ch;
+  padding: 2em 2em 1.2em;
+  display: grid;
+  gap: 0.8em;
+  background: var(--cl-primary-dark-200);
+  border: 2px solid var(--cl-primary-dark-300);
+  border-radius: 6px;
+}
+
+.model p {
+  font-size: 1.25rem;
+  padding: 1em 2em;
+}
+
+/* UTILITY CLASSES */
+/* ------------------------- */
+
+.hidden {
+  visibility: hidden;
 }
 
 .grid-self-right {

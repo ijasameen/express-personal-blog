@@ -1,37 +1,43 @@
 import Post from "../models/post.js";
 
 export default async function createPost(req, res) {
-  try {
-    const title = req.body.title;
-    const slug = req.body.slug;
-    const tagsString = req.body.tags;
-    const content = req.body.content;
+  const formData = {
+    title: req.body.title,
+    slug: req.body.slug,
+    tagsString: req.body.tags,
+    content: req.body.content,
+  };
 
-    const tags = tagsString.split(",");
+  try {
+    const tags = formData.tagsString.split(",");
     tags.forEach((tag) => {
       tag.trim().toLowerCase();
     });
 
     await Post.create({
-      slug: slug,
-      title: title,
+      slug: formData.slug,
+      title: formData.title,
       tags: tags,
-      content: content,
+      content: formData.content,
       published: false,
     });
     console.log("Post created!");
 
-    res.status(200);
+    res.status(201);
     res.render("admin/create", {
-      title: "Blog Website Admin - Create Post",
       layout: req.ejsLayout,
+      title: "Blog Website Admin - Create Post",
+      message: "Post created!",
+      formData: {},
     });
   } catch (err) {
     console.error(err);
     res.status(500);
     res.render("admin/create", {
-      title: "Blog Website Admin - Create Post",
       layout: req.ejsLayout,
+      title: "Blog Website Admin - Create Post",
+      message: `Failed to create post\nError: ${err.message}`,
+      formData,
     });
   }
 }
