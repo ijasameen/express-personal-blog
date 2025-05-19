@@ -13,8 +13,8 @@ const app = express();
 
 await dbConnection();
 
-app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
 app.use(express.static("public"));
 
 app.use(expressEjsLayouts);
@@ -26,7 +26,6 @@ app.set("view engine", "ejs");
 
 // Routers
 app.use(indexRouter);
-
 app.use("/admin", adminRouter);
 
 app.listen(PORT, () => {

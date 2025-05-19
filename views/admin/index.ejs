@@ -1,0 +1,25 @@
+<div class="flex flex-align-start flex-justify-between">
+  <h1>Admin Panel</h1>
+  <a class="btn" href="/admin/create">New</a>
+</div>
+
+<form class="search-box" method="get">
+  <div class="input-field">
+    <label for="search">Search</label>
+    <input type="search" name="search" id="search" />
+  </div>
+</form>
+
+<ul class="list" role="list">
+  <% posts.forEach(post => { %>
+  <li class="list-item">
+    <div class="title"><%- post.title %></div>
+    <div class="list-controls">
+      <a class="btn" href="/admin/edit/<%- post._id %>">Edit</a>
+      <button type="button" class="btn" data-id="<%- post._id %>">
+        Delete
+      </button>
+    </div>
+  </li>
+  <% }) %>
+</ul>

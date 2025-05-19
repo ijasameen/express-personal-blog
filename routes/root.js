@@ -4,7 +4,7 @@ const router = Router();
 
 router.get("/{index{.html}}", (req, res) => {
   res.status(200);
-  res.render("index", { title: "Blog Website" });
+  res.render("index", { title: "Blog Website - Home" });
 });
 
 router.get("/blogs{.html}", (req, res) => {

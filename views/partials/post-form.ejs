@@ -1,0 +1,41 @@
+<form id="<%- formId %>" class="input-form" method="<%- method %>">
+  <div class="input-field">
+    <label for="title">Title </label>
+    <input
+      type="text"
+      name="title"
+      id="title"
+      required
+      value="<% if (post.title) { %><%- post.title %><% } %>"
+    />
+  </div>
+  <div class="input-field">
+    <label for="url">URL</label>
+    <input
+      type="text"
+      name="slug"
+      id="url"
+      required
+      value="<% if (post.slug) { %><%- post.slug %><% } %>"
+    />
+  </div>
+  <div class="input-field">
+    <label for="tags">Tags</label>
+    <input
+      type="text"
+      name="tags"
+      id="tags"
+      required
+      value="<% if (post.getTagsString) { %><%- post.getTagsString() %><% } %>"
+    />
+  </div>
+  <div class="input-field">
+    <label for="content">Content</label>
+    <textarea name="content" id="content" cols="30" rows="10" required>
+<% if (post.content) { %><%- post.content %><% } %></textarea
+    >
+  </div>
+  <button class="btn grid-self-right" type="submit"><%- actionText %></button>
+</form>
+
+<script defer src="/js/post-form.js"></script>

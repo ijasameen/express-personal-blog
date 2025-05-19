@@ -1,0 +1,7 @@
+<div class="flex flex-align-start flex-justify-between">
+  <h1>Edit Post</h1>
+  <a class="btn" href="/admin">Back</a>
+</div>
+
+<%- include('../partials/post-form.ejs', { formId: "edit-form", method: "PUT",
+actionText: "Update"}) %>

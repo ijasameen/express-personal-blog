@@ -1,5 +1,12 @@
 import { Router } from "express";
-import createPost from "../controllers/createPostController.js";
+import {
+  getAllView,
+  getCreateView,
+  getEditView,
+  createPost,
+  editPost,
+  deletePost,
+} from "../controllers/adminController.js";
 
 const router = Router();
 
@@ -8,16 +15,13 @@ router.use((req, res, next) => {
   next();
 });
 
-router.get("/create{.html}", (req, res) => {
-  res.status(200);
-  res.render("admin/create", {
-    layout: req.ejsLayout,
-    title: "Blog Website Admin - Create Post",
-    message: null,
-    formData: {},
-  });
-});
-
+// Requests for views
+router.get("/{index{.html}}", getAllView);
+router.get("/create{.html}", getCreateView);
+router.get("/edit/:id", getEditView);
+// Requests for form
 router.post("/create{.html}", createPost);
+router.put("/edit/:id", editPost);
+router.delete("/delete/:id", deletePost);
 
 export default router;

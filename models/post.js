@@ -11,7 +11,10 @@ const postSchema = new Schema({
     type: String,
     required: true,
   },
-  tags: [String],
+  tags: {
+    type: [String],
+    lowercase: true,
+  },
   content: {
     type: String,
     required: true,
@@ -31,6 +34,9 @@ const postSchema = new Schema({
     default: () => Date.now(),
   },
 });
+postSchema.methods.getTagsString = function () {
+  return this.tags.join(", ");
+};
 
 const Post = model("Post", postSchema);
 export default Post;

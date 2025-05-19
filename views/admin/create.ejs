@@ -1,50 +1,7 @@
-<h1>New Blog Post</h1>
-
-<form class="input-form" method="post">
-  <div class="input-field">
-    <label for="title">Title </label>
-    <input
-      type="text"
-      name="title"
-      id="title"
-      required
-      value="<% if (formData) %><%- formData.title %>"
-    />
-  </div>
-  <div class="input-field">
-    <label for="url">URL</label>
-    <input
-      type="text"
-      name="slug"
-      id="url"
-      required
-      value="<% if (formData) %><%- formData.slug %>"
-    />
-  </div>
-  <div class="input-field">
-    <label for="tags">Tags</label>
-    <input
-      type="text"
-      name="tags"
-      id="tags"
-      required
-      value="<% if (formData) %><%- formData.tagsString %>"
-    />
-  </div>
-  <div class="input-field">
-    <label for="content">Content</label>
-    <textarea name="content" id="content" cols="30" rows="10" required>
-<% if (formData) %><%- formData.content %></textarea
-    >
-  </div>
-  <button class="grid-self-right" type="submit">Create</button>
-</form>
-
-<div class="model <% if (!message) { %>hidden<% } %>">
-  <div class="model__content">
-    <p><%- message %></p>
-    <button type="button" id="close-model">Ok</button>
-  </div>
+<div class="flex flex-align-start flex-justify-between">
+  <h1>Admin Panel</h1>
+  <a class="btn" href="/admin">Back</a>
 </div>
 
-<script defer src="../js/create.js"></script>
+<%- include('../partials/post-form.ejs', { formId: "create-form", method:
+"POST", actionText: "Create" }) %>
