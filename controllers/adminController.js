@@ -85,7 +85,7 @@ export async function editPost(req, res) {
     post.slug = req.body.slug;
     post.tags = tags;
     post.content = req.body.content;
-    post.updateAt = Date.now();
+    post.updatedAt = Date.now();
     await post.save();
     console.log("Post updated!");
 

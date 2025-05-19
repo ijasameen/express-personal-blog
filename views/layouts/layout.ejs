@@ -9,9 +9,10 @@
   <body>
     <header class="page-header">
       <div class="container">
+        <p>Blog Website</p>
         <nav class="main-nav">
-          <a class="main-nav-link" href="/">Home</a>
-          <a class="main-nav-link" href="blogs">Blogs</a>
+          <a class="main-nav-link" <% if (page === "Home") { %>data-active="true"<% } %> href="/">Home</a>
+          <a class="main-nav-link" <% if (page === "Blogs") { %>data-active="true"<% } %> href="blogs">Blogs</a>
         </nav>
       </div>
     </header>

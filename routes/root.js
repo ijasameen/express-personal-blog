@@ -4,12 +4,12 @@ const router = Router();
 
 router.get("/{index{.html}}", (req, res) => {
   res.status(200);
-  res.render("index", { title: "Blog Website - Home" });
+  res.render("index", { title: "Blog Website - Home", page: "Home" });
 });
 
 router.get("/blogs{.html}", (req, res) => {
   res.status(200);
-  res.render("blogs", { title: "Blog Website - Blogs" });
+  res.render("blogs", { title: "Blog Website - Blogs", page: "Blogs" });
 });
 
 export default router;

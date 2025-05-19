@@ -15,6 +15,15 @@ router.use((req, res, next) => {
   next();
 });
 
+router.get("/login{.html}", (req, res) => {
+  res.status(200);
+  res.render("admin/login", {
+    layout: req.ejsLayout,
+    title: "Blog Website Admin - Login",
+    containerClass: "container-small",
+  });
+});
+
 // Requests for views
 router.get("/{index{.html}}", getAllView);
 router.get("/create{.html}", getCreateView);
