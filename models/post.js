@@ -38,5 +38,15 @@ postSchema.methods.getTagsString = function () {
   return this.tags.join(", ");
 };
 
+postSchema.methods.getUpdatedDateString = function () {
+  const date = new Date(this.updatedAt);
+  return `${date.getFullYear()}-${date.getMonth()}-${date.getDate()}`;
+};
+
+postSchema.methods.getCreatedDateString = function () {
+  const date = new Date(this.createdAt);
+  return `${date.getFullYear()}-${date.getMonth()}-${date.getDate()}`;
+};
+
 const Post = model("Post", postSchema);
 export default Post;

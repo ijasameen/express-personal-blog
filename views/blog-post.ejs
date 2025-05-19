@@ -1,0 +1,23 @@
+<h1><%- post.title %></h1>
+<ul class="prop-list" role="list">
+  <li class="prop-item">
+    <span>Created</span>
+    <span><%- post.getCreatedDateString() %></span>
+  </li>
+  <li class="prop-item">
+    <span>Updated</span>
+    <span><%- post.getUpdatedDateString() %></span>
+  </li>
+  <% if (post.tags.length > 0) { %>
+  <li class="prop-item">
+    <span>Tags</span>
+    <ul class="flex" role="list">
+      <% post.tags.forEach(tag => { %>
+      <li class="tag"><%- tag %></li>
+      <% }) %>
+    </ul>
+  </li>
+  <% } %>
+</ul>
+
+<p class="blog-post-content"><%- post.content %></p>

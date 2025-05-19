@@ -1,1 +1,18 @@
 <h1>All Blog Posts</h1>
+
+<form class="search-box" method="get">
+  <div class="input-field">
+    <label for="search">Search</label>
+    <input type="search" name="search" id="search" />
+  </div>
+</form>
+
+<ul class="list" role="list">
+  <% posts.forEach(post => { %>
+  <li>
+    <a class="list-item" href="/blogs/<%- post.slug %>" class="title"
+      ><%- post.title %></a
+    >
+  </li>
+  <% }) %>
+</ul>
