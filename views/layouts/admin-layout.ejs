@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title><%- title %></title>
+    <title><%- locals.title %></title>
     <link rel="stylesheet" href="/css/main.css" />
     <%- script %>
     <script type="module" src="/js/admin-panel.js"></script>
@@ -11,14 +11,18 @@
   <body>
     <header class="page-header">
       <div class="container">
-        <p>Blog Website</p>
+        <a class="logo-link" href="/">Blog Website</a>
         <nav class="main-nav">
-          <button type="button" class="main-nav-link">Log Out</button>
+          <a
+            href="/admin/logout"
+            class="main-nav-link <% if (locals.hideLogout) { %>hidden<% } %>"
+            >Log Out</a
+          >
         </nav>
       </div>
     </header>
     <% if (locals.containerClass) { %>
-    <main class="<%- containerClass %>"><%- body %></main>
+    <main class="<%- locals.containerClass %>"><%- body %></main>
     <% } else { %>
     <main class="container"><%- body %></main>
     <% } %>

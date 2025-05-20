@@ -99,7 +99,7 @@ h1 {
   border-radius: 0 0 1rem 1rem;
 }
 
-.page-header p {
+.page-header .logo-link {
   margin-left: 0.25em;
   font-size: 1.25rem;
 }
@@ -303,6 +303,10 @@ textarea:focus {
   min-width: 5ch;
   padding: 0.3em 0.6em;
   font-size: 1rem;
+}
+
+.logo-link {
+  cursor: pointer;
 }
 
 .tag {

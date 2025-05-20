@@ -21,6 +21,10 @@ export async function getBlogPostView(req, res) {
   try {
     const post = await Post.findOne({ slug }).exec();
 
+    if (!post) {
+      res.redirect("/404");
+    }
+
     res.status(200);
     res.render("blog-post", {
       title: `Blog Website - ${post.title}`,

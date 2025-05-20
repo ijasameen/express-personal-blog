@@ -1,18 +1,18 @@
-<h1><%- post.title %></h1>
+<h1><%- locals.post.title %></h1>
 <ul class="prop-list" role="list">
   <li class="prop-item">
     <span>Created</span>
-    <span><%- post.getCreatedDateString() %></span>
+    <span><%- locals.post.getCreatedDateString() %></span>
   </li>
   <li class="prop-item">
     <span>Updated</span>
-    <span><%- post.getUpdatedDateString() %></span>
+    <span><%- locals.post.getUpdatedDateString() %></span>
   </li>
-  <% if (post.tags.length > 0) { %>
+  <% if (locals.post.tags.length > 0) { %>
   <li class="prop-item">
     <span>Tags</span>
     <ul class="flex" role="list">
-      <% post.tags.forEach(tag => { %>
+      <% locals.post.tags.forEach(tag => { %>
       <li class="tag"><%- tag %></li>
       <% }) %>
     </ul>
@@ -20,4 +20,4 @@
   <% } %>
 </ul>
 
-<p class="blog-post-content"><%- post.content %></p>
+<p class="blog-post-content"><%- locals.post.content %></p>

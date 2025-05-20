@@ -1,12 +1,16 @@
-<form id="<%- formId %>" class="input-form" method="<%- method %>">
+<form
+  id="<%- locals.formId %>"
+  class="input-form"
+  method="<%- locals.method %>"
+>
   <div class="input-field">
-    <label for="title">Title </label>
+    <label for="title">Title</label>
     <input
       type="text"
       name="title"
       id="title"
       required
-      value="<% if (post.title) { %><%- post.title %><% } %>"
+      value="<% if (locals.post.title) { %><%- locals.post.title %><% } %>"
     />
   </div>
   <div class="input-field">
@@ -16,7 +20,7 @@
       name="slug"
       id="url"
       required
-      value="<% if (post.slug) { %><%- post.slug %><% } %>"
+      value="<% if (locals.post.slug) { %><%- locals.post.slug %><% } %>"
     />
   </div>
   <div class="input-field">
@@ -26,13 +30,13 @@
       name="tags"
       id="tags"
       required
-      value="<% if (post.getTagsString) { %><%- post.getTagsString() %><% } %>"
+      value="<% if (locals.post.getTagsString) { %><%- locals.post.getTagsString() %><% } %>"
     />
   </div>
   <div class="input-field">
     <label for="content">Content</label>
     <textarea name="content" id="content" cols="30" rows="10" required>
-<% if (post.content) { %><%- post.content %><% } %></textarea
+<% if (locals.post.content) { %><%- locals.post.content %><% } %></textarea
     >
   </div>
   <button class="btn grid-self-right" type="submit"><%- actionText %></button>

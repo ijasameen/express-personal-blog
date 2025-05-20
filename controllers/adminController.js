@@ -1,6 +1,7 @@
+import { isValidObjectId } from "mongoose";
 import Post from "../models/post.js";
 
-export async function getAllView(req, res) {
+export async function getAdminPanelView(req, res) {
   try {
     const posts = await Post.find({}, { title: 1 }).exec();
     res.status(200);
@@ -29,10 +30,17 @@ export async function getCreateView(req, res) {
 
 export async function getEditView(req, res) {
   const id = req.params.id;
-  console.log(req.url, id);
 
   try {
+    if (!isValidObjectId(id)) {
+      res.redirect("/404");
+    }
+
     const post = await Post.findById(id).exec();
+
+    if (!post) {
+      res.redirect("/404");
+    }
 
     res.status(200);
     res.render("admin/edit", {
@@ -85,7 +93,6 @@ export async function editPost(req, res) {
     post.slug = req.body.slug;
     post.tags = tags;
     post.content = req.body.content;
-    post.updatedAt = Date.now();
     await post.save();
     console.log("Post updated!");
 
@@ -103,7 +110,7 @@ export async function deletePost(req, res) {
     const id = req.params.id;
 
     await Post.deleteOne({ _id: id }).exec();
-    console.log("Post updated!");
+    console.log("Post deleted!");
 
     res.status(200);
     res.send("Post deleted!");

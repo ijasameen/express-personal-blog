@@ -8,7 +8,7 @@
 </form>
 
 <ul class="list" role="list">
-  <% posts.forEach(post => { %>
+  <% locals.posts.forEach(post => { %>
   <li>
     <a class="list-item" href="/blogs/<%- post.slug %>" class="title"
       ><%- post.title %></a
